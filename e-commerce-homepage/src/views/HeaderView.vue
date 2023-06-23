@@ -21,8 +21,13 @@ export default {
     </div>
     <div class="header-nav">
       <ul class="header-nav-ulist">
-        <li class="nav-list">Home</li>
-        <li class="nav-list">Category1</li>
+        <router-link class="router-link" to="/home">
+          <li class="nav-list">Home</li>
+        </router-link>
+        
+        <router-link class="router-link" to="/shampoo">
+          <li class="nav-list">Shampoo</li>
+        </router-link>
         <li class="nav-list">Category2</li>
         <li class="nav-list">About us</li>
       </ul>

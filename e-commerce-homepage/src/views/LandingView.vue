@@ -21,14 +21,19 @@ export default {
                 Shampoo Store
             </div>
             <div>
-                <button id="login" type="submit">Login</button>
+                <router-link class="router-link" to="/home">
+                    <button id="login" type="submit">Login</button>
+                </router-link>
                 <button id="signup" type="submit">Signup</button>
             </div>
         </div>
         <div class="header-nav">
             <ul class="header-nav-ulist">
                 <!-- <li class="nav-list">Home</li> -->
-                <li class="nav-list">Category1</li>
+                <router-link class="router-link" to="/shampoo">
+                    <li class="nav-list">Shampoo</li>
+                </router-link>
+                
                 <li class="nav-list">Category2</li>
                 <li class="nav-list">About us</li>
             </ul>
@@ -49,7 +54,7 @@ export default {
                 <br> 
                 with multi brand 
             </div>
-            <router-link to="/home">
+            <router-link class="router-link" to="/home">
                 <button id="get-start">Get start!</button>
             </router-link>
             

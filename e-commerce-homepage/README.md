@@ -1,7 +1,7 @@
 # What i have done
 Landing page with  route /
 Home page with route /home
-Product page with route /product
+list of shampoo page with route /shampoo
 
 # e-commerce-homepage
 
