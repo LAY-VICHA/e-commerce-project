@@ -1,0 +1,25 @@
+/* -------------------------------- */
+/*        responsive design         */
+/* -------------------------------- */
+
+@media (max-width: 1000px) {
+    .payment-delivery {
+        display: block;
+        height: 140px;
+    }
+
+    .payment-method {
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 850px) {
+    .bestselling-products {
+        column-gap: 80px;
+    }
+
+    .bestselling-shampoo {
+        width: 170px;
+        height: 170px;
+    }
+}

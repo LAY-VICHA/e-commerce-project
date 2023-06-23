@@ -1,3 +1,8 @@
+# What i have done
+Landing page with  route /
+Home page with route /home
+Product page with route /product
+
 # e-commerce-homepage
 
 This template should help get you started developing with Vue 3 in Vite.
