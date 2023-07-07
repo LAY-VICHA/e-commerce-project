@@ -17,7 +17,7 @@ export default {
 
   <div>
     <div id="hero-image-container">
-      <img id="hero-image" src="../assets/images/hero image.jpg">
+      <img id="hero-image" src="../assets/images/hero-image.jpg">
       <div class="promotion">-10%/first purchase</div>
     </div>
 

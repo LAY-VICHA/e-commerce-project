@@ -7,6 +7,11 @@ export default {
     components: {
         Header,
         Footer
+    },
+    methods: {
+        toProductPage() {
+            this.$router.push('/productname')
+        }
     }
 }
 </script>
@@ -17,7 +22,7 @@ export default {
     <div>
         <div class="path">Home > <span class="current-path">Shampoo</span></div>
         <div class="shampoo-products">
-            <div class="shampoo">
+            <div class="shampoo" @click="toProductPage">
                 <img class="shampoo-image" src="../assets/images/shampoo1.jpg">
                 <div class="shampoo-text">Product name</div>
                 <div class="shampoo-text">Price</div>

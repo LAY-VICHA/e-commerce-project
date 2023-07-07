@@ -3,6 +3,11 @@
 /* ---------------------- */
 
 .header {
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    right: 0;
     height: 203px;
     margin-bottom: 27px;
     background-color: #F6F5EC;
@@ -37,7 +42,7 @@
     margin-right: 16px;
 }
 
-.header-nav-ulist {
+.header-nav-list {
     list-style: none;
     display: flex;
     justify-content: space-around;

@@ -4,7 +4,10 @@
 @import './responsive.css';
 @import './landing.css';
 @import './shampoo.css';
-
+@import './login.css';
+@import './signup.css';
+@import './product.css';
+@import './cartPopup.css';
 
 @import url("https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700");
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&display=swap");
@@ -12,15 +15,17 @@
 
 * {
     font-weight: 400;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Inter', sans-serif;
     box-sizing: border-box;
     line-height: 1.5em;
 }
-  
+
 body {
     width: 100vw;
     margin: 0;
     background-color: fff;
+    margin-top: 203px;
+    margin-bottom: 90px;
 }
 
 button {
@@ -30,17 +35,6 @@ button {
 .router-link {
     text-decoration: none;
     color: inherit;
-}
-
-.path {
-    font-size: 24px;
-    margin-left: 54px;
-    margin-bottom: 30px;
-    margin-top: 34px;
-}
-
-.current-path {
-font-weight: 700;
 }
 
 

@@ -1,0 +1,19 @@
+.signup {
+    display: inline-block;
+    width: 350px;
+}
+
+#signup-btn {
+    width: 320px;
+    border-radius: 30px;
+    padding: 10px;
+    border: 1px solid #EFE7DA;
+    background-color: #EFE7DA;
+    margin: 20px;
+    margin-top: 30px;
+    font-weight: 700;
+    height: 50px;
+    font-size: medium;
+    text-transform: uppercase;
+
+}

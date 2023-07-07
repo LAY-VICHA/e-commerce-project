@@ -21,14 +21,17 @@ export default {
                 Shampoo Store
             </div>
             <div>
-                <router-link class="router-link" to="/home">
+                <router-link class="router-link" to="/login">
                     <button id="login" type="submit">Login</button>
                 </router-link>
-                <button id="signup" type="submit">Signup</button>
+                <router-link class="router-link" to="/login">
+                    <button id="signup" type="submit">Signup</button>
+                </router-link>
+                
             </div>
         </div>
         <div class="header-nav">
-            <ul class="header-nav-ulist">
+            <ul class="header-nav-list">
                 <!-- <li class="nav-list">Home</li> -->
                 <router-link class="router-link" to="/shampoo">
                     <li class="nav-list">Shampoo</li>
@@ -68,6 +71,7 @@ export default {
 
 <style>
 .header-landing {
+    margin-top: -203px;
     background-color: #E8DFCA;
 }
 
@@ -94,6 +98,10 @@ export default {
 
 .extend {
     width: 100%;
-    height: 30px;
+    /* height: 10px; */
+}
+
+.header-nav-list {
+    margin-bottom: 0;
 }
 </style>
