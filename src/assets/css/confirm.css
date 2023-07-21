@@ -1,0 +1,165 @@
+.confirm {
+    margin: auto;
+    padding: 30px 54px 100px 54px;
+    height: fit-content;
+}
+
+.confirm-order {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.tick-icon-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.tick-icon {
+    width: 75px;
+    height: 78px;
+}
+
+.thank-message {
+    font-size: 40px;
+    font-weight: 600;
+}
+
+#back-btn {
+    background-color: black;
+    color: white;
+    padding: 5px 20px;
+    font-size: 16px;
+}
+
+#back-btn:hover {
+    background-color: white;
+    color: black;
+    border: white;
+    font-weight: bold;
+}
+
+.confirm-message {
+    font-size: 20px;
+    font-weight: 600;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    text-align: center;
+    background-color: #F6F5EC;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    margin-bottom: 30px;
+}
+
+.order-detail {
+    display: flex;
+    gap: 50px;
+}
+
+.order-information {
+    width: 40%;
+}
+
+.order-text {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.order-information-table,
+.order-summary-table-container {
+    background-color: #EFE7DA;
+    padding: 40px;
+}
+
+.summary-order {
+    width: 60%;
+}
+
+.order-information-row {
+    display: flex;
+    gap: 10px;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.order-information-row:last-child {
+    margin-bottom: 0;
+}
+
+.semibold {
+    font-weight: 600;
+}
+
+.order-summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+
+thead {
+    border-bottom: 2px solid black;
+}
+
+th {
+    padding-bottom: 10px;
+}
+
+th,
+td {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+td {
+    text-align: center;
+}
+
+tbody tr td {
+    padding-top: 20px;
+}
+
+tbody:last-child {
+    border-bottom: 2px solid black;
+
+}
+
+tbody tr:last-child td {
+    padding-bottom: 20px;
+}
+
+
+.total-summary {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    width: 100%;
+    padding-right: 60px;
+}
+
+.each-cost {
+    display: flex;
+    gap: 130px;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.total-cost .each-cost:last-child {
+    margin-bottom: 0;
+}
+
+.total-cost:last-child {
+    border-bottom: 2px solid black;
+    border-top: 2px solid black;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.summary-text {
+    font-size: 20px;
+    font-weight: 600;
+}

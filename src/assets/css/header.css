@@ -1,0 +1,54 @@
+/* ---------------------- */
+/*        header          */
+/* ---------------------- */
+
+.header {
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 203px;
+    margin-bottom: 27px;
+    background-color: #F6F5EC;
+}
+
+.header-component {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 65px;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-bottom: 40px;
+}
+
+.store-name {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.fa-solid,
+.fa-regular {
+    font-size: 40px;
+    width: 41px;
+    height: 42px;
+}
+
+.fa-solid {
+    margin-right: 16px;
+}
+
+.header-nav-list {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+.nav-list {
+    font-weight: 700;
+    font-size: 24px;
+}

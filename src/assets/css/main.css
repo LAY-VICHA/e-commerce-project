@@ -1,0 +1,134 @@
+@import './header.css';
+@import './footer.css';
+@import './home.css';
+@import './responsive.css';
+@import './landing.css';
+@import './shampoo.css';
+@import './login.css';
+@import './signup.css';
+@import './product.css';
+@import './cartPopup.css';
+
+@import url("https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
+
+* {
+    font-weight: 400;
+    font-family: 'Inter', sans-serif;
+    box-sizing: border-box;
+    line-height: 1.5em;
+}
+
+body {
+    width: 100vw;
+    margin: 0;
+    background-color: fff;
+    margin-top: 203px;
+    margin-bottom: 90px;
+}
+
+button {
+    cursor: pointer;
+}
+
+.router-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+
+
+
+
+
+
+
+
+
+/* ------------------------------------------ */
+/*        payment and delivery choice         */
+/* ------------------------------------------ */
+
+.payment-delivery {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 55px;
+    background-color: #EFE7DA;
+    border-bottom: 1px solid black;
+    height: 70px;
+}
+
+.payment-method,
+.delivery-method {
+    display: flex;
+    column-gap: 32px;
+
+}
+
+.payment-delivery-method-text {
+    font-size: 24px;
+}
+
+.payment-logo,
+.delivery-logo {
+    display: flex;
+    column-gap: 16px;
+}
+
+.visa-card {
+    width: 90px;
+    height: 39px;
+}
+
+.master-card {
+    width: 70px;
+    height: 39px;
+}
+
+.american-express {
+    width: 60px;
+    height: 39px;
+}
+
+.fedex-logo {
+    width: 39px;
+    height: 39px;
+}
+
+.ups-logo {
+    width: 39px;
+    height: 39px;
+}
+
+.zto-logo {
+    width: 80px;
+    height: 39px;
+}
+
+/* ----------------------------------- */
+/*        subscribe suggestion         */
+/* ----------------------------------- */
+
+.subscribe {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #EFE7DA;
+    height: 120px;
+    font-size: 20px;
+    line-height: 24px;
+    margin-bottom: 38px;
+}
+
+.subscribe-btn {
+    background-color: black;
+    color: white;
+    border: 1px solid black;
+    font-weight: 600;
+}

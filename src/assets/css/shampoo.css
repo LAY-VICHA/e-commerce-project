@@ -1,0 +1,32 @@
+.path {
+    font-size: 20px;
+    margin-left: 54px;
+    margin-top: 34px;
+}
+
+.current-path {
+    font-weight: 700;
+}
+
+.shampoo-products {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+
+    margin-top: 30px;
+    padding-left: 57px;
+    padding-right: 57px;
+    padding-bottom: 30px;
+    column-gap: 120px;
+    row-gap: 30px;
+    white-space: nowrap; 
+}
+
+.shampoo-image {
+    width: 272px;
+    height: 270px;
+}
+
+.shampoo-text {
+    font-size: 20px;
+    font-weight: 700;
+}

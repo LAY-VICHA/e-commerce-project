@@ -1,0 +1,155 @@
+hr {
+    height: 2px;
+    background-color: black;
+}
+
+.cart-content {
+    margin-top: 50px;
+    padding: 0 30px;
+    padding-left: 54px;
+    padding-right: 54px;
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    width: 100%;
+}
+
+.cart {
+    width: 70%;
+}
+
+.cart h3 {
+    font-size: 25px;
+    text-align: start;
+    font-weight: 700;
+    margin-bottom: 0;
+}
+
+.cart-header {
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr;
+    font-size: 20px;
+    font-weight: bold;
+
+}
+
+.cart-items {
+    overflow-y: auto;
+    /* width: 1000px; */
+    max-height: 350px;
+}
+
+.cart-details {
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr;
+    align-items: center;
+    margin-bottom: 15px;
+
+}
+
+.product-img {
+    display: flex;
+    justify-content: space-between;
+    width: 380px;
+    column-gap: 20px;
+    align-items: center;
+}
+
+/* cart */
+.cart-product {
+    width: 200px;
+    /* Adjust the percentage value to shrink the image */
+    height: 200px;
+}
+
+.product-desc {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.cart-text {
+    margin: 5px;
+    font-size: 18px;
+    font-weight: bold;
+
+
+}
+
+.price {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+
+.quantity {
+    padding: 0 20px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+
+.subtotal {
+    display: flex;
+    justify-content: end;
+    padding-right: 15px;
+}
+
+/* summary */
+.summary {
+    width: 30%;
+    background-color: #EFE7DA;
+    margin-top: 70px;
+    padding: 20px;
+    position: sticky;
+    bottom: 0;
+    height: 450px;
+}
+
+.summary h3 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 0;
+}
+
+.summary-details {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: -5px;
+}
+
+.summary p {
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.summary hr {
+    height: 2.2px;
+    font-weight: bold;
+}
+
+.cart-page-checkout-btn-container {
+    display: flex;
+    justify-content: center;
+}
+
+#cart-page-checkout-btn {
+    width: 320px;
+    border-radius: 30px;
+    padding: 8px;
+    color: white;
+    background-color: black;
+    padding: 10px;
+    margin-top: 10px;
+    
+    font-weight: bold;
+    font-size: 20px;
+
+}
+
+.btn:hover {
+    background-color: white;
+    color: black;
+    border: white;
+    font-weight: bold;
+}

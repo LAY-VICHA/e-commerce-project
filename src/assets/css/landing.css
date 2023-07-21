@@ -1,0 +1,44 @@
+#landing-page {
+    position: relative;
+    padding: 0;
+    
+}
+
+#landing-page-image {
+    height: 780px;
+    width: 100%;
+    object-fit: cover;
+    margin-bottom: 0;
+}
+
+.landing-page-content {
+    position: absolute;
+    top: 80px;
+    left: 100px;
+
+}
+
+#quote {
+    font-size: 96px;
+    color: #B29079;
+    font-weight: 700;
+    margin-bottom: 30px;
+    line-height: 120px;
+}
+
+#company-strength {
+    font-size: 28px;
+    color: #B29079;
+    margin-bottom: 50px;
+    line-height: 36px;
+}
+
+#get-start {
+    background-color: #B29079;
+    color: white;
+    font-size: 36px;
+    font-weight: 700;
+    border: none;
+    border-radius: 35px;
+    padding: 15px 35px;
+}

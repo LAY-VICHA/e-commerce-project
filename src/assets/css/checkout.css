@@ -1,0 +1,154 @@
+.checkout-page {
+  display: flex;
+}
+
+.checkout-page-content {
+  margin: auto;
+  padding: 0 54px 15px 54px;
+  height: 520px;
+  display: flex;
+  gap: 50px;
+  justify-content: space-between;
+  overflow-y: hidden;
+}
+
+.path {
+  font-size: 20px;
+  margin-left: 54px;
+  margin-top: 34px;
+  border-bottom: 2px solid black;
+  display: inline-block;
+  width: 1069px;
+  padding-bottom: 20px;
+}
+
+.current-path {
+  font-weight: 700;
+}
+
+hr {
+  margin-top: 20px;
+  height: 2px;
+  background-color: black;
+}
+
+.checkout h3 {
+  font-size: 25px;
+  margin-top: 0;
+  font-weight: 700;
+}
+
+/* customer info */
+
+.customer-info {
+  font-weight: bold;
+}
+
+.checkout {
+  width: 70%;
+  margin-top: 20px;
+}
+
+.input-line {
+  display: block;
+  background-color: #EFE7DA;
+  border: 1px solid black;
+  height: auto;
+  width: 100%;
+  padding: 5px 10px;
+  margin: auto;
+  text-align: start;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.customer-name {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 10px;
+  margin: 12px 0;
+
+}
+
+.customer-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 22px;
+}
+
+.return-cart {
+  font-size: 20px;
+  color: black;
+  text-decoration: none;
+}
+
+.shipping-btn,
+.code-apply-btn {
+  background-color: black;
+  color: white;
+  padding: 5px 20px;
+  font-size: 16px;
+}
+
+.checkout-summary {
+  width: 30%;
+  background-color: #EFE7DA;
+  padding: 30px 20px;
+  height: fit-content;
+}
+
+.checkout-summary-form {
+  margin-top: 20px;
+}
+
+.checkout-summary p {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.checkout-summary hr {
+  height: 2.2px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.checkout-summary h3 {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.summary-details {
+  display: flex;
+  justify-content: space-between;
+  margin-top: -15px;
+  margin-bottom: 0;
+}
+
+.summary-details:not(:last-child) {
+  margin-bottom: 0;
+}
+
+.summary-details .total {
+  font-weight: bold;
+}
+
+.discount {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 8px;
+  margin-bottom: 0;
+}
+
+.discount-details {
+  margin-bottom: 19px;
+}
+
+.shipping-btn:hover,
+.btn:hover {
+  background-color: white;
+  color: black;
+  border: white;
+  font-weight: bold;
+}

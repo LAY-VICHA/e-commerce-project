@@ -1,0 +1,70 @@
+/* -------------------------- */
+/*        hero image          */
+/* -------------------------- */
+
+#hero-image-container {
+    background-color: #EFE7DA;
+    padding: 40px;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+#hero-image {
+    width: 100%;
+}
+
+.promotion {
+    position: absolute;
+    z-index: 2;
+    font-size: 36px;
+    font-weight: 500;
+    background-color: black;
+    color: white;
+    right: 40px;
+    top: 0px;
+    padding: 15px 35px;
+    border-radius: 35px;
+    border: 5px solid #EFE7DA;
+}
+
+/* ---------------------------------- */
+/*        recommended product         */
+/* ---------------------------------- */
+
+.bestselling {
+    background-color: #E1DACA;
+    font-size: 36px;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    height: 74px;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.bestselling-products {
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-auto-flow: column;
+
+    padding-left: 57px;
+    padding-right: 57px;
+    padding-bottom: 30px;
+    column-gap: 120px;
+    row-gap: 30px;
+    margin-bottom: 30px;
+    white-space: nowrap; 
+    overflow-x: scroll;
+}
+
+.bestselling-shampoo {
+    width: 272px;
+    height: 270px;
+    
+}
+
+.bestselling-text {
+    font-size: 20px;
+    font-weight: 700;
+}
