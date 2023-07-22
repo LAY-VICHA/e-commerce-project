@@ -33,9 +33,9 @@ const router = createRouter({
       component: () => import('../views/LandingView.vue')
     },
     {
-      path: '/shampoo',
-      name: 'shampoo',
-      component: () => import('../views/ShampooView.vue')
+      path: '/categories/:categoryId',
+      name: 'categories',
+      component: () => import('../views/CategoriesView.vue')
     },
     {
       path: '/productname',

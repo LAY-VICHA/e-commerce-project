@@ -17,14 +17,19 @@
     </div>
     <div class="header-nav">
       <ul class="header-nav-list">
-        <router-link class="router-link" to="/home">
-          <li class="nav-list">Home</li>
-        </router-link>
+        <li class="nav-list">
+          <router-link class="router-link bold" to="/home">
+            Home
+          </router-link>
+        </li>
 
-        <router-link class="router-link" to="/shampoo">
-          <li class="nav-list">Shampoo</li>
-        </router-link>
-        <li class="nav-list">Conditioner</li>
+        <li class="nav-list" v-for="product_cat in product_cats" :key="product_cat.id">
+          <a class="bold" @click="navigateToCategory(product_cat)">
+            {{ product_cat.name }}
+          </a>
+        </li>
+
+        <!-- <li class="nav-list">Conditioner</li> -->
         <li class="nav-list">About us</li>
       </ul>
     </div>
@@ -32,6 +37,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 import { ref } from 'vue'
 import Popup from './cartPopup.vue'
 //ref is a special attribute that is used to give a name to a child component or element so that it can be referenced in the parent component. It is used to access the properties and methods of the child component or element from the parent component.
@@ -55,5 +61,28 @@ export default {
       togglePopup,
     }
   },
+  data() {
+    return {
+      product_cats: [],
+    }
+  },
+  created() {
+    // Call the API when the component is created
+    this.fetchProducts();
+  },
+  methods: {
+    fetchProducts() {
+      axios.get('http://localhost:8000/api/productcategories') // Replace this with your actual Laravel API endpoint
+        .then(response => {
+          this.product_cats = response.data;
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    },
+    navigateToCategory(category) {
+      this.$router.push(`/categories/${category.id}`);
+    },
+  }
 }
 </script>
