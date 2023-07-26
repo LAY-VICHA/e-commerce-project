@@ -9,21 +9,6 @@ export default {
     Header,
     Footer,
   },
-  data() {
-    return {
-      jsonData: null,
-    };
-  },
-  mounted() {
-    axios
-      .get('http://localhost:3000/api/data')
-      .then(response => {
-        this.jsonData = response.data;
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  },
 };
 
 </script>

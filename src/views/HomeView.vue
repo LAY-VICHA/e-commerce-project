@@ -1,4 +1,5 @@
 <script>
+import axios from 'axios';
 import Header from './HeaderView.vue'
 import Footer from './FooterView.vue'
 
@@ -7,6 +8,32 @@ export default {
   components: {
     Header,
     Footer
+  },
+
+  data() {
+    return {
+      products: [],
+      image: null,
+      pro: [],
+    };
+  },
+  created() {
+    this.fetchProduct();
+  },
+  methods: {
+    // route to product page
+    fetchProduct() {
+      axios.get(`http://localhost:8000/api/products`) // Replace this with your actual backend API endpoint to fetch category details
+        .then(response => {
+          this.products = response.data.slice(0, 10)
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    },
+    getImage(imagePath) {
+      return `http://localhost:8000/storage/${imagePath}`
+    }
   }
 }
 </script>
@@ -23,55 +50,10 @@ export default {
 
     <div class="bestselling">Discover our Bestselling Products</div>
     <div class="bestselling-products">
-      <div class="bestselling-detail">
-        <img class="bestselling-shampoo" src="../assets/images/shampoo1.jpg">
-        <div class="bestselling-text">Product name</div>
-        <div class="bestselling-text">Price</div>
-      </div>
-      <div class="bestselling-detail">
-        <img class="bestselling-shampoo" src="../assets/images/shampoo2.jpg">
-        <div class="bestselling-text">Product name</div>
-        <div class="bestselling-text">Price</div>
-      </div>
-      <div class="bestselling-detail">
-        <img class="bestselling-shampoo" src="../assets/images/shampoo3.jpg">
-        <div class="bestselling-text">Product name</div>
-        <div class="bestselling-text">Price</div>
-      </div>
-      <div class="bestselling-detail">
-        <img class="bestselling-shampoo" src="../assets/images/shampoo4.jpg">
-        <div class="bestselling-text">Product name</div>
-        <div class="bestselling-text">Price</div>
-      </div>
-      <div class="bestselling-detail">
-        <img class="bestselling-shampoo" src="../assets/images/shampoo5.jpg">
-        <div class="bestselling-text">Product name</div>
-        <div class="bestselling-text">Price</div>
-      </div>
-      <div class="bestselling-detail">
-        <img class="bestselling-shampoo" src="../assets/images/shampoo1.jpg">
-        <div class="bestselling-text">Product name</div>
-        <div class="bestselling-text">Price</div>
-      </div>
-      <div class="bestselling-detail">
-        <img class="bestselling-shampoo" src="../assets/images/shampoo2.jpg">
-        <div class="bestselling-text">Product name</div>
-        <div class="bestselling-text">Price</div>
-      </div>
-      <div class="bestselling-detail">
-        <img class="bestselling-shampoo" src="../assets/images/shampoo3.jpg">
-        <div class="bestselling-text">Product name</div>
-        <div class="bestselling-text">Price</div>
-      </div>
-      <div class="bestselling-detail">
-        <img class="bestselling-shampoo" src="../assets/images/shampoo4.jpg">
-        <div class="bestselling-text">Product name</div>
-        <div class="bestselling-text">Price</div>
-      </div>
-      <div class="bestselling-detail">
-        <img class="bestselling-shampoo" src="../assets/images/shampoo5.jpg">
-        <div class="bestselling-text">Product name</div>
-        <div class="bestselling-text">Price</div>
+      <div class="bestselling-detail" v-for="product in products" :key="product.id">
+        <img class="bestselling-shampoo" :src="getImage(product.image)">
+        <div class="bestselling-text">{{ product.name }}</div>
+        <!-- <div class="bestselling-text">Price</div> -->
       </div>
     </div>
   </div>

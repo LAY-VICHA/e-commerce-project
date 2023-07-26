@@ -9,7 +9,8 @@
         Shampoo Store
       </div>
       <div>
-        <i class="fa-solid fa-user"></i>
+        <!-- <i class="fa-solid fa-user"></i> -->
+        <button id="logout-btn" @click="logout"> Logout </button>
         <i class="fa-solid fa-cart-shopping" @click="() => togglePopup('buttonTrigger')"></i>
 
         <Popup v-if="popupTrigger.buttonTrigger" :togglePopup="() => togglePopup('buttonTrigger')"></Popup>
@@ -39,7 +40,7 @@
 <script>
 import axios from 'axios'
 import { ref } from 'vue'
-import Popup from './cartPopup.vue'
+import Popup from './CartPopup.vue'
 //ref is a special attribute that is used to give a name to a child component or element so that it can be referenced in the parent component. It is used to access the properties and methods of the child component or element from the parent component.
 
 export default {
@@ -82,6 +83,24 @@ export default {
     },
     navigateToCategory(category) {
       this.$router.push(`/categories/${category.id}`);
+    },
+    logout() {
+      // Clear the token from local storage on logout
+      console.log(localStorage.getItem('token'));
+      localStorage.removeItem('token');
+      localStorage.removeItem('user');
+      // Optionally, you can make an API request to log out the user on the server
+      axios.post('http://localhost:8000/api/logout')
+        .then(response => {
+          console.log(response.data.message);
+          // Redirect the user to the login page after successful logout
+          this.$router.push('/');
+
+        })
+        .catch(error => {
+          // Handle logout error (if needed)
+          console.error(error);
+        });
     },
   }
 }

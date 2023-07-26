@@ -80,3 +80,10 @@ label {
     transition: 0.3s ease;
     color: #0787fd;
 }
+
+.wrong-credentials {
+    color: #ff4742;
+    font-size: 20px;
+    text-align: center;
+   
+}

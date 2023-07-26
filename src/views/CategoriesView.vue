@@ -27,8 +27,8 @@ export default {
     },
     methods: {
         // route to product page
-        toProductPage() {
-            this.$router.push('/productname')
+        toProductPage(product) {
+            this.$router.push(`/product/${product}`)
         },
         fetchCategory() {
             const categoryId = this.$route.params.categoryId;
@@ -55,7 +55,7 @@ export default {
     <div>
         <div class="path">Home > <span class="current-path">Shampoo</span></div>
         <div class="shampoo-products">
-            <div class="shampoo" v-for="product in products" :key="product.id"  @click="toProductPage">
+            <div class="shampoo" v-for="product in products" :key="product.id"  @click="toProductPage(product.id)">
                 <!-- <img class="shampoo-image" src="../assets/images/shampoo1.jpg">
                 <div class="shampoo-text">Product name</div>
                 <div class="shampoo-text">Price</div> -->

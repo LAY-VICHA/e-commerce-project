@@ -7,7 +7,8 @@ const router = createRouter({
     {
       path: '/home',
       name: 'home',
-      component: HomeView
+      component: HomeView,
+      meta: { requiresAuth: true }
     },
     {
       path: '/login',
@@ -38,8 +39,8 @@ const router = createRouter({
       component: () => import('../views/CategoriesView.vue')
     },
     {
-      path: '/productname',
-      name: 'productname',
+      path: '/product/:productId',
+      name: 'product',
       component: () => import('../views/ProductView.vue')
     },
     {
@@ -50,12 +51,14 @@ const router = createRouter({
     {
       path: '/checkout',
       name: 'checkout',
-      component: () => import('../views/CheckoutView.vue')
+      component: () => import('../views/CheckoutView.vue'),
+      meta: { requiresAuth: true }
     },
     {
       path: '/shipping',
       name: 'shipping',
-      component: () => import('../views/ShippingView.vue')
+      component: () => import('../views/ShippingView.vue'),
+      meta: { requiresAuth: true }
     },
     {
       path: '/payment',
@@ -69,5 +72,29 @@ const router = createRouter({
     },
   ]
 })
+
+router.beforeEach((to, from, next) => {
+  // Check if the route requires authentication
+  const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
+  // Check if the user is authenticated by looking for the token in local storage
+  const isAuthenticated = localStorage.getItem('token');
+  var role = '';
+  if(localStorage.getItem('user') !== null) {
+    role = JSON.parse(localStorage.getItem('user')).role;
+  }
+  
+  if ((requiresAuth && !isAuthenticated)) {
+    console.log("my role");
+    // If the route requires authentication and the user is not authenticated, redirect to the login page
+    next('/login');
+  } 
+  // else if((requiresAuth && role === "admin")) {
+  //   alert('admin donot have authentication in this page');
+  // }
+  else {
+    // For all other cases, proceed with the navigation
+    next();
+  }
+});
 
 export default router

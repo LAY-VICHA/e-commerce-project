@@ -55,13 +55,13 @@ font-weight: 700;
     display: flex;
     margin-bottom: 30px;
     border-bottom: 2px solid black;
-    width: 310px;
+    width: 350px;
 }
 
 .product-page-dropdown-text {
     font-size: 24px;
     font-weight: 600;
-    width: 120px;
+    width: 150px;
 }
 
 .product-page-dropdown {
@@ -70,6 +70,10 @@ font-weight: 700;
     font-size: 20px;
     width: 200px;
     border: none;
+}
+
+.light {
+    font-weight: 200;
 }
 
 label[for="quantity"] {
@@ -88,11 +92,25 @@ label[for="quantity"] {
 
 .add-cart-btn-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     margin-top: 40px;
+    gap: 20px;
 }
 
 #add-cart-btn {
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    background-color: #F6F5EC;
+    border: none;
+    width: 350px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+#back-btn {
     font-size: 24px;
     font-weight: 600;
     text-align: center;

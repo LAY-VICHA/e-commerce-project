@@ -27,7 +27,7 @@ hr {
 
 .cart-header {
     display: grid;
-    grid-template-columns: 3fr 1fr 1fr;
+    grid-template-columns: 3fr 1fr 1fr 1fr;
     font-size: 20px;
     font-weight: bold;
 
@@ -41,7 +41,7 @@ hr {
 
 .cart-details {
     display: grid;
-    grid-template-columns: 3fr 1fr 1fr;
+    grid-template-columns: 3fr 1fr 1fr 1fr;
     align-items: center;
     margin-bottom: 15px;
 
@@ -53,6 +53,16 @@ hr {
     width: 380px;
     column-gap: 20px;
     align-items: center;
+}
+
+#delete-cart {
+    padding: 5px 20px;
+    color: white;
+    background-color: #ff4742;
+    border: none;
+    font-size: 20px;
+    font-weight: 500;
+    width: 100px;
 }
 
 /* cart */
