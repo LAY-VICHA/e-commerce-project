@@ -28,10 +28,28 @@ export default {
     },
     checkout() {
       const userId = JSON.parse(localStorage.getItem('user')).user.id;
-      axios.post(`http://localhost:8000/api/carts/checkout/${userId}`)
+      axios.get(`http://localhost:8000/api/orders/unpaid/${userId}`)
         .then(response => {
-          console.log(response.data.message);
-          this.$router.push(`/checkout`);
+          console.log(response.data);
+          if (response.data[0] != null) {
+            axios.put(`http://localhost:8000/api/carts/checkout/${userId}`)
+              .then(response => {
+                console.log(response.data.message);
+                this.$router.push(`/checkout`);
+              })
+              .catch(error => {
+                console.error(error);
+              });
+          } else {
+            axios.post(`http://localhost:8000/api/carts/checkout/${userId}`)
+              .then(response => {
+                console.log(response.data.message);
+                this.$router.push(`/checkout`);
+              })
+              .catch(error => {
+                console.error(error);
+              });
+          }
         })
         .catch(error => {
           console.error(error);

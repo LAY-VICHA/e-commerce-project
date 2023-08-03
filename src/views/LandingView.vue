@@ -63,7 +63,11 @@ export default {
                     </a>
                 </li>
 
-                <li class="nav-list">About us</li>
+                <li class="nav-list">
+                    <router-link class="router-link bold" to="/about">
+                        About us
+                    </router-link>
+                </li>
             </ul>
         </div>
         <div class="extend"></div>

@@ -13,12 +13,14 @@ const router = createRouter({
     {
       path: '/login',
       name: 'login',
-      component: () => import('../views/Login.vue')
+      component: () => import('../views/Login.vue'),
+      meta: { ensureLogout: true }
     },
     {
       path: '/signup',
       name: 'signup',
-      component: () => import('../views/Signup.vue')
+      component: () => import('../views/Signup.vue'),
+      meta: { ensureLogout: true }
     },
     {
       path: '/about',
@@ -46,7 +48,8 @@ const router = createRouter({
     {
       path: '/cart',
       name: 'cart',
-      component: () => import('../views/CartView.vue')
+      component: () => import('../views/CartView.vue'),
+      meta: { requiresAuth: true }
     },
     {
       path: '/checkout',
@@ -63,12 +66,14 @@ const router = createRouter({
     {
       path: '/payment',
       name: 'payment',
-      component: () => import('../views/PaymentView.vue')
+      component: () => import('../views/PaymentView.vue'),
+      meta: { requiresAuth: true }
     },
     {
-      path: '/confirm',
+      path: '/confirm/:orderId',
       name: 'confirm',
-      component: () => import('../views/ConfirmView.vue')
+      component: () => import('../views/ConfirmView.vue'),
+      meta: { requiresAuth: true }
     },
   ]
 })
@@ -78,23 +83,33 @@ router.beforeEach((to, from, next) => {
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
   // Check if the user is authenticated by looking for the token in local storage
   const isAuthenticated = localStorage.getItem('token');
+  //to ensure that user is already logout in order to login or register
+  const ensureLogout = to.matched.some(record => record.meta.ensureLogout);
+
   var role = '';
-  if(localStorage.getItem('user') !== null) {
+  if (localStorage.getItem('user') !== null) {
     role = JSON.parse(localStorage.getItem('user')).role;
   }
-  
+
   if ((requiresAuth && !isAuthenticated)) {
     console.log("my role");
+    alert('you must log in first to continue!!!');
     // If the route requires authentication and the user is not authenticated, redirect to the login page
     next('/login');
-  } 
-  // else if((requiresAuth && role === "admin")) {
-  //   alert('admin donot have authentication in this page');
-  // }
-  else {
-    // For all other cases, proceed with the navigation
-    next();
   }
+  else {
+    if (isAuthenticated && ensureLogout) {
+      alert('you have already logged in');
+      next('/home');
+    } else {
+      // For all other cases, proceed with the navigation
+      next();
+    }
+    
+    // next();
+  }
+
+
 });
 
 export default router

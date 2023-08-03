@@ -2,12 +2,7 @@
 import axios from 'axios'
 import Header from './HeaderView.vue'
 import Footer from './FooterView.vue'
-
-
-// let productImage = document.getElementById('product-image')
-// let productSubImage1 = document.getElementById('product-subimage1');
-// let productSubImage2 = document.getElementById('product-subimage2');
-// let productSubImage3 = document.getElementById('product-subimage3');
+import { useStore } from 'vuex';
 
 export default {
     name: 'ProductView',
@@ -32,6 +27,14 @@ export default {
             siz_id: '',
             quantity: '',
         };
+    },
+    watch: {
+        '$route.params.productId'(newValue) {
+            // this.fetchCategory(newValue);
+            this.fetchAllProduct();
+            this.fetchProduct();
+            this.fetchScent();
+        },
     },
     created() {
         this.fetchAllProduct();
@@ -103,44 +106,49 @@ export default {
         },
         addToCart() {
             if (this.isValid == true) {
-                const size = this.siz_id
-                const userId = JSON.parse(localStorage.getItem('user')).user.id
-                const productId = this.$route.params.productId;
-                const scentId = this.sce_id
-                const subtotal = this.price * this.quantity
+                if (localStorage.getItem('token') != undefined || localStorage.getItem('user') != undefined) {
+                    const size = this.siz_id
+                    const userId = JSON.parse(localStorage.getItem('user')).user.id
+                    const productId = this.$route.params.productId;
+                    const scentId = this.sce_id
+                    const subtotal = this.price * this.quantity
 
-                const cart = {
-                    user_id: userId,
-                    pro_id: productId,
-                    sce_id: scentId,
-                    siz_id: size,
-                    quantity: this.quantity,
-                    status: 'in_cart',
-                    price: this.price,
-                    subtotal: subtotal
+                    const cart = {
+                        user_id: userId,
+                        pro_id: productId,
+                        sce_id: scentId,
+                        siz_id: size,
+                        quantity: this.quantity,
+                        status: 'in_cart',
+                        price: this.price,
+                        subtotal: subtotal
+                    }
+                    axios.post(`http://localhost:8000/api/carts`, cart)
+                        .then(response => {
+                            console.log('cart created:', response.data);
+                            this.$router.push(`/home`);
+                        })
+                        .catch(error => {
+                            console.error(error);
+                        });
+
+                    const stockNow = this.stock - this.quantity
+                    const decreaseStock = {
+                        stock: stockNow
+                    }
+                    axios.put(`http://localhost:8000/api/productsizes/${size}`, decreaseStock)
+                        .then(response => {
+                            console.log('update successfully:', decreaseStock);
+                        })
+                        .catch(error => {
+                            console.error(error);
+                        });
+
+                    this.err = '';
+                } else {
+                    alert('You must login first to continue!!');
+                    this.$router.push('/login');
                 }
-                axios.post(`http://localhost:8000/api/carts`, cart)
-                    .then(response => {
-                        console.log('cart created:', response.data);
-                        this.$router.push(`/home`);
-                    })
-                    .catch(error => {
-                        console.error(error);
-                    });
-
-                const stockNow = this.stock - this.quantity
-                const decreaseStock = {
-                    stock: stockNow
-                }
-                axios.put(`http://localhost:8000/api/productsizes/${size}`, decreaseStock)
-                    .then(response => {
-                        console.log('update successfully:', decreaseStock);
-                    })
-                    .catch(error => {
-                        console.error(error);
-                    });
-
-                this.err = '';
             } else {
                 return this.err = 'added not successs'
             }
@@ -150,6 +158,9 @@ export default {
         },
         getImage(imagePath) {
             return `http://localhost:8000/storage/${imagePath}`
+        },
+        toProductPage(product) {
+            this.$router.push(`/product/${product}`);
         },
     }
 }
@@ -218,7 +229,8 @@ export default {
     </div>
 
     <div class="product-page-recommend-product">
-        <img v-for="product in products" :key="product.id" :src="getImage(product.image)">
+        <img v-for="product in products" :key="product.id" :src="getImage(product.image)"
+            @click="toProductPage(product.id)">
     </div>
 
 

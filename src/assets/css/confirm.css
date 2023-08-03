@@ -27,7 +27,7 @@
     font-weight: 600;
 }
 
-#back-btn {
+#back-home-btn {
     background-color: black;
     color: white;
     padding: 5px 20px;
@@ -86,8 +86,14 @@
     margin-bottom: 20px;
 }
 
+.order-information-row-first {
+    width: 170px;
+    white-space: nowrap;
+}
+
 .order-information-row:last-child {
     margin-bottom: 0;
+    white-space: normal;    
 }
 
 .semibold {

@@ -33,6 +33,10 @@ export default {
     },
     getImage(imagePath) {
       return `http://localhost:8000/storage/${imagePath}`
+    },
+
+    toProductPage(id) {
+      this.$router.push(`/product/${id}`)
     }
   }
 }
@@ -50,7 +54,7 @@ export default {
 
     <div class="bestselling">Discover our Bestselling Products</div>
     <div class="bestselling-products">
-      <div class="bestselling-detail" v-for="product in products" :key="product.id">
+      <div class="bestselling-detail" v-for="product in products" :key="product.id" @click="toProductPage(product.id)">
         <img class="bestselling-shampoo" :src="getImage(product.image)">
         <div class="bestselling-text">{{ product.name }}</div>
         <!-- <div class="bestselling-text">Price</div> -->

@@ -63,3 +63,15 @@
     font-weight: 700;
     font-size: 24px;
 }
+
+.notification {
+    color: white;
+    position: absolute;
+    top: 48px;
+    right: 45px;
+    font-weight: 600;
+    background-color: #ff4742;
+    z-index: 3;
+    padding: 2px 10px;
+    border-radius: 20px;
+}

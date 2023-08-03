@@ -64,10 +64,7 @@ input[type="radio"] {
     margin-bottom: 16px;
 }
 
-label[for="ups-ground"],
-label[for="ups-3day-select"],
-label[for="ups-2nd-day"],
-label[for="ups-next-day"] {
+.shipping-radio-btn {
     font-size: 20px;
     font-weight: 400;
     margin-bottom: 16px;

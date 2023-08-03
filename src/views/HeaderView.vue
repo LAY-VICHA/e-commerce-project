@@ -11,7 +11,10 @@
       <div>
         <!-- <i class="fa-solid fa-user"></i> -->
         <button id="logout-btn" @click="logout"> Logout </button>
-        <i class="fa-solid fa-cart-shopping" @click="() => togglePopup('buttonTrigger')"></i>
+        <i class="fa-solid fa-cart-shopping" @click="() => togglePopup('buttonTrigger')"> </i>
+        <div v-if="this.number > 0" class="notification"> {{ this.number }} </div>
+       
+        
 
         <Popup v-if="popupTrigger.buttonTrigger" :togglePopup="() => togglePopup('buttonTrigger')"></Popup>
       </div>
@@ -31,7 +34,11 @@
         </li>
 
         <!-- <li class="nav-list">Conditioner</li> -->
-        <li class="nav-list">About us</li>
+        <li class="nav-list" >
+          <router-link class="router-link bold" to="/about">
+            About us
+          </router-link>
+        </li>
       </ul>
     </div>
   </header>
@@ -65,12 +72,15 @@ export default {
   data() {
     return {
       product_cats: [],
+      number: '',
     }
   },
   created() {
     // Call the API when the component is created
     this.fetchProducts();
+    this.notification();
   },
+
   methods: {
     fetchProducts() {
       axios.get('http://localhost:8000/api/productcategories') // Replace this with your actual Laravel API endpoint
@@ -102,6 +112,19 @@ export default {
           console.error(error);
         });
     },
+
+    notification() {
+      const userId = JSON.parse(localStorage.getItem('user')).user.id
+      axios.get(`http://localhost:8000/api/carts/notification/${userId}`)
+        .then(response => {
+          console.log(response.data.length)
+          this.number = response.data.length;
+        })
+        .catch(error => {
+          // Handle logout error (if needed)
+          console.error(error);
+        });
+    }
   }
 }
 </script>

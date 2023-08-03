@@ -2,6 +2,7 @@
 import axios from 'axios';
 import Header from './HeaderView.vue'
 import Footer from './FooterView.vue'
+import setAuthHeader from '../libs/apis/axiosConfig'
 
 // axios.defaults.withCredentials = true;
 
@@ -39,7 +40,7 @@ export default {
             localStorage.setItem('user', JSON.stringify(response.data));
 
             this.hasError = false;
-
+            setAuthHeader(response.data.token);
             // Optionally, you can redirect the user to a dashboard or home page
             this.$router.push('/home');
           }
